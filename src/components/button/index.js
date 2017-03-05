@@ -13,6 +13,7 @@ export default class Button extends Component {
 
     shadeColor: 'rgb(0, 0, 0)',
     shadeOpacity: 0.12,
+    shadeBorderRadius: 2,
 
     focusAnimation: null,
     focusAnimationDuration: 225,
@@ -28,6 +29,7 @@ export default class Button extends Component {
 
     shadeColor: PropTypes.string,
     shadeOpacity: PropTypes.number,
+    shadeBorderRadius: PropTypes.number,
 
     focusAnimation: PropTypes.instanceOf(Animated.Value),
     focusAnimationDuration: PropTypes.number,
@@ -79,7 +81,7 @@ export default class Button extends Component {
   }
 
   render() {
-    let { disabled, color, shadeColor, shadeOpacity, disabledColor, style, children, ...props } = this.props;
+    let { disabled, color, shadeColor, shadeOpacity, shadeBorderRadius, disabledColor, style, children, ...props } = this.props;
     let { focusAnimation } = this.state;
 
     let opacity = focusAnimation.interpolate({
@@ -88,6 +90,7 @@ export default class Button extends Component {
     });
 
     let backgroundColor = shadeColor;
+    let borderRadius = shadeBorderRadius;
 
     return (
       <Ripple
@@ -99,7 +102,7 @@ export default class Button extends Component {
         onPressIn={ () => this.onPressIn() }
         onPressOut={ () => this.onPressOut() }
       >
-        <Animated.View style={[styles.shade, { backgroundColor, opacity }]} pointerEvents='none' />
+        <Animated.View style={[styles.shade, { backgroundColor, opacity, borderRadius }]} pointerEvents='none' />
         {children}
       </Ripple>
     );

@@ -18,8 +18,6 @@ const styles = StyleSheet.create({
 
   shade: {
     ...StyleSheet.absoluteFillObject,
-
-    borderRadius: 2,
   },
 });
 

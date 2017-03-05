@@ -29,6 +29,7 @@ export default class Example extends Component {
 * `color`                  - Button color (default: rgb(224, 224, 224))
 * `shadeColor`             - Button shade color for focused state (default: rgb(0, 0, 0))
 * `shadeOpacity`           - Button shade opacity for focused state (default: 0.12)
+* `shadeBorderRadius`      - Button shade border radius (default: 2)
 * `focusAnimationDuration` - Button focus animation duration in ms (default: 225)
 * `disabled`               - Button availability (default: false)
 * `disabledColor`          - Button color for disabled state (default: rgba(0, 0, 0, .12))
