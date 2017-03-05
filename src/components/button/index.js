@@ -6,7 +6,6 @@ import { styles } from './styles';
 
 export default class Button extends Component {
   static defaultProps = {
-    rippleDuration: 500,
     rippleContainerBorderRadius: 2,
 
     color: 'rgba(224, 224, 224)',
