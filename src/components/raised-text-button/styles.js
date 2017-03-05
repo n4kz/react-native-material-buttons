@@ -2,8 +2,11 @@ import { StyleSheet, Platform } from 'react-native';
 
 const styles = StyleSheet.create({
   text: {
+    flex: 1,
     textAlign: 'center',
+
     backgroundColor: 'transparent',
+
     fontSize: 14,
     fontWeight: '500',
 

@@ -2,13 +2,16 @@ import { StyleSheet, Platform } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    paddingLeft: 8,
-    paddingRight: 8,
+    minWidth: 64,
+    paddingHorizontal: 8,
   },
 
   text: {
+    flex: 1,
     textAlign: 'center',
+
     backgroundColor: 'transparent',
+
     fontSize: 14,
     fontWeight: '500',
 
