@@ -17,8 +17,8 @@ import { TextButton, RaisedTextButton } from 'react-native-material-buttons';
 export default class Example extends Component {
   render() {
     return (
-      <TextButton title='touch me' />
       <RaisedTextButton title='touch me' />
+      <TextButton title='do not touch me' disabled />
     );
   }
 }
@@ -27,10 +27,10 @@ export default class Example extends Component {
 ## Common properties
 
 * `color`                  - Button color (default: rgb(224, 224, 224))
-* `shadeColor`             - Button shade color for focused state (default: rgb(0, 0, 0)
+* `shadeColor`             - Button shade color for focused state (default: rgb(0, 0, 0))
 * `shadeOpacity`           - Button shade opacity for focused state (default: 0.12)
 * `focusAnimationDuration` - Button focus animation duration in ms (default: 225)
-* `disabled`               - Button availability (default: false) 
+* `disabled`               - Button availability (default: false)
 * `disabledColor`          - Button color for disabled state (default: rgba(0, 0, 0, .12))
 * `onPress`                - Touch up callback
 
