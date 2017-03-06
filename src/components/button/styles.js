@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
     paddingHorizontal: 16,
-    margin: 4,
   },
 
   shade: {
