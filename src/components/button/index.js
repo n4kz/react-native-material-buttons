@@ -8,7 +8,7 @@ export default class Button extends Component {
   static defaultProps = {
     rippleContainerBorderRadius: 2,
 
-    color: 'rgba(224, 224, 224)',
+    color: 'rgb(224, 224, 224)',
 
     shadeColor: 'rgb(0, 0, 0)',
     shadeOpacity: 0.12,
