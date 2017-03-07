@@ -109,8 +109,8 @@ export default class Button extends Component {
         onPressIn={this.onPressIn}
         onPressOut={this.onPressOut}
       >
-        <Animated.View style={[ styles.shade, shadeStyle ]} pointerEvents='none' />
         {children}
+        <Animated.View style={[ styles.shade, shadeStyle ]} pointerEvents='none' />
       </Ripple>
     );
   }
