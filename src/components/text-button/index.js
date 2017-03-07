@@ -12,7 +12,6 @@ export default class TextButton extends Component {
     titleColor: 'rgb(0, 0, 0)',
     disabledTitleColor: 'rgba(0, 0, 0, .26)',
 
-    shadeColor: 'rgb(153, 153, 153)',
     shadeOpacity: 0.20,
   };
 
@@ -33,7 +32,7 @@ export default class TextButton extends Component {
     };
 
     return (
-      <Button rippleColor={titleStyle.color} style={[styles.container, style]} {...props}>
+      <Button rippleColor={titleColor} shadeColor={titleColor} style={[styles.container, style]} {...props}>
         <Text style={[styles.text, titleStyle]} numberOfLines={1}>
           {String(title).toUpperCase()}
         </Text>
