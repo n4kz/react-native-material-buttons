@@ -39,6 +39,9 @@ export default class Button extends Component {
   constructor(props) {
     super(props);
 
+    this.onPressIn = this.onPressIn.bind(this);
+    this.onPressOut = this.onPressOut.bind(this);
+
     this.state = {
       focusAnimation: this.props.focusAnimation || new Animated.Value(0),
     };
@@ -71,7 +74,7 @@ export default class Button extends Component {
   }
 
   componentWillReceiveProps(props) {
-    let focusAnimation = props.focusAnimation;
+    let { focusAnimation } = props;
 
     if (focusAnimation && focusAnimation !== this.state.focusAnimation) {
       this.setState({ focusAnimation });
@@ -103,8 +106,8 @@ export default class Button extends Component {
 
         {...props}
 
-        onPressIn={ () => this.onPressIn() }
-        onPressOut={ () => this.onPressOut() }
+        onPressIn={this.onPressIn}
+        onPressOut={this.onPressOut}
       >
         <Animated.View style={[ styles.shade, shadeStyle ]} pointerEvents='none' />
         {children}
