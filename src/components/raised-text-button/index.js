@@ -28,7 +28,7 @@ export default class RaisedTextButton extends Component {
 
     return (
       <RaisedButton rippleColor={titleColor} shadeColor={titleColor} {...props}>
-        <Text style={[styles.text, titleStyle]} numberOfLines={1}>
+        <Text style={[styles.text, titleStyle]} numberOfLines={1} pointerEvents='none'>
           {String(title).toUpperCase()}
         </Text>
       </RaisedButton>

@@ -33,7 +33,7 @@ export default class TextButton extends Component {
 
     return (
       <Button rippleColor={titleColor} shadeColor={titleColor} style={[styles.container, style]} {...props}>
-        <Text style={[styles.text, titleStyle]} numberOfLines={1}>
+        <Text style={[styles.text, titleStyle]} numberOfLines={1} pointerEvents='none'>
           {String(title).toUpperCase()}
         </Text>
       </Button>
