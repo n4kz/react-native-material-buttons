@@ -34,7 +34,6 @@ export default class Button extends Component {
     focusAnimationDuration: PropTypes.number,
 
     disabledColor: PropTypes.string,
-    disabled: PropTypes.bool,
   };
 
   constructor(props) {
@@ -97,7 +96,6 @@ export default class Button extends Component {
 
         {...props}
 
-        pointerEvents={ disabled? 'none' : 'auto' }
         onPressIn={ () => this.onPressIn() }
         onPressOut={ () => this.onPressOut() }
       >
