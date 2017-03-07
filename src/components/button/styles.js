@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {
+  ripple: {
     borderRadius: 2,
     height: 36,
     minWidth: 88,

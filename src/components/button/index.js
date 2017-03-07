@@ -79,7 +79,7 @@ export default class Button extends Component {
   }
 
   render() {
-    let { disabled, color, shadeColor, shadeOpacity, shadeBorderRadius, disabledColor, style, children, ...props } = this.props;
+    let { color, disabledColor, shadeColor, shadeOpacity, shadeBorderRadius, style, children, ...props } = this.props;
     let { focusAnimation } = this.state;
 
     let opacity = focusAnimation.interpolate({
@@ -87,19 +87,26 @@ export default class Button extends Component {
       outputRange: [0, shadeOpacity],
     });
 
-    let backgroundColor = shadeColor;
-    let borderRadius = shadeBorderRadius;
+    let rippleStyle = {
+      backgroundColor: props.disabled? disabledColor : color,
+    };
+
+    let shadeStyle = {
+      backgroundColor: shadeColor,
+      borderRadius: shadeBorderRadius,
+      opacity,
+    };
 
     return (
       <Ripple
-        style={[styles.container, { backgroundColor: disabled? disabledColor : color }, style]}
+        style={[ styles.ripple, rippleStyle, style ]}
 
         {...props}
 
         onPressIn={ () => this.onPressIn() }
         onPressOut={ () => this.onPressOut() }
       >
-        <Animated.View style={[styles.shade, { backgroundColor, opacity, borderRadius }]} pointerEvents='none' />
+        <Animated.View style={[ styles.shade, shadeStyle ]} pointerEvents='none' />
         {children}
       </Ripple>
     );
