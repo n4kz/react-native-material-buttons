@@ -106,8 +106,8 @@ export default function init() {
             </View>
 
             <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
-              <TextButton titleColor='#00796B' title='decline' />
-              <TextButton titleColor='#00695C' color='rgba(0, 0, 0, .05)' title='accept' />
+              <TextButton style={{ margin: 4, marginLeft: 0, }}titleColor='#00796B' title='decline' />
+              <TextButton style={{ margin: 4 }} titleColor='#00695C' color='rgba(0, 0, 0, .05)' title='accept' />
             </View>
           </View>
         </ScrollView>
