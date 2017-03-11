@@ -45,15 +45,29 @@ let styles = {
 
   display: {
     paddingHorizontal: 8,
-    fontSize: 20,
+    fontSize: 17,
     fontWeight: '500',
+    color: 'rgba(0, 0, 0, .87)',
   },
 
   text: {
     padding: 8,
-    fontSize: 17,
+    fontSize: 15,
+    color: 'rgba(0, 0, 0, .54)',
+  },
+
+  content: {
+    flex: 1,
+    paddingVertical: 16,
+  },
+
+  bold: {
+    fontWeight: 'bold',
   },
 };
+
+let Strong = ({ children, ...props }) =>
+  <Text style={styles.bold} {...props}>{children}</Text>
 
 export default function init() {
   class Example extends Component {
@@ -61,19 +75,21 @@ export default function init() {
       return (
         <ScrollView style={styles.scroll}>
           <View style={styles.card}>
-            <RaisedTextButton title="default button" />
-            <TextButton title="default flat button" />
+            <View style={styles.content}>
+              <Text style={styles.display}>default</Text>
+              <Text style={styles.text}>Buttons with default props, raised or flat, enabled or <Strong>disabled</Strong></Text>
+            </View>
+
+            <RaisedTextButton style={{ marginVertical: 4 }} title="default button" />
+            <RaisedTextButton style={{ marginVertical: 4 }} title="disabled button" disabled />
+            <TextButton style={{ marginVertical: 4 }} title="default flat button" />
+            <TextButton style={{ marginVertical: 4 }} title="disabled flat button" disabled />
           </View>
 
           <View style={styles.card}>
-            <RaisedTextButton title="disabled button" disabled />
-            <TextButton title="disabled flat button" disabled />
-          </View>
-
-          <View style={styles.card}>
-            <View style={{ flex: 1, paddingVertical: 16 }}>
+            <View style={styles.content}>
               <Text style={styles.display}>raised</Text>
-              <Text style={styles.text}>Buttons with custom color, titleColor, increased rippleDuration and rippleOpacity</Text>
+              <Text style={styles.text}>Buttons with custom <Strong>color</Strong>, <Strong>titleColor</Strong>, increased <Strong>rippleDuration</Strong> and <Strong>rippleOpacity</Strong></Text>
             </View>
 
             <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
@@ -84,9 +100,9 @@ export default function init() {
           </View>
 
           <View style={styles.card}>
-            <View style={{ flex: 1, paddingVertical: 16 }}>
+            <View style={styles.content}>
               <Text style={styles.display}>flat</Text>
-              <Text style={styles.text}>Buttons with custom titleColor</Text>
+              <Text style={styles.text}>Buttons with custom <Strong>titleColor</Strong> and <Strong>color</Strong></Text>
             </View>
 
             <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
