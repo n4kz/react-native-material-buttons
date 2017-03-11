@@ -1,6 +1,8 @@
 # react-native-material-buttons
 
-Material buttons
+Material buttons with consistent behaviour on iOS and Android
+
+![Example](https://cloud.githubusercontent.com/assets/2055622/23826422/df52a53c-06ac-11e7-855f-f6d189c50320.gif)
 
 ## Installation
 
