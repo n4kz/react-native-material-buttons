@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, ScrollView, View } from 'react-native';
+import { AppRegistry, Text, ScrollView, View } from 'react-native';
 import { TextButton, RaisedTextButton } from 'react-native-material-buttons';
 
 let styles = {
@@ -66,8 +66,10 @@ let styles = {
   },
 };
 
+/* eslint-disable react/prop-types */
 let Strong = ({ children, ...props }) =>
   <Text style={styles.bold} {...props}>{children}</Text>
+/* eslint-enable */
 
 export default function init() {
   class Example extends Component {
@@ -106,7 +108,7 @@ export default function init() {
             </View>
 
             <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
-              <TextButton style={{ margin: 4, marginLeft: 0, }}titleColor='#00796B' title='decline' />
+              <TextButton style={{ margin: 4, marginLeft: 0 }} titleColor='#00796B' title='decline' />
               <TextButton style={{ margin: 4 }} titleColor='#00695C' color='rgba(0, 0, 0, .05)' title='accept' />
             </View>
           </View>
