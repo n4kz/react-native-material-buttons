@@ -1,4 +1,12 @@
+[npm-badge]: https://img.shields.io/npm/v/react-native-material-buttons.svg?colorB=ff6d00
+[npm-url]: https://npmjs.com/package/react-native-material-buttons
+[license-badge]: https://img.shields.io/npm/l/react-native-material-buttons.svg?colorB=448aff
+[license-url]: https://raw.githubusercontent.com/n4kz/react-native-material-buttons/master/license.txt
+
 # react-native-material-buttons
+
+[![npm][npm-badge]][npm-url]
+[![license][license-badge]][license-url]
 
 Material buttons with consistent behaviour on iOS and Android
 
@@ -16,7 +24,7 @@ npm install --save react-native-material-buttons
 import React, { Component } from 'react';
 import { TextButton, RaisedTextButton } from 'react-native-material-buttons';
 
-export default class Example extends Component {
+class Example extends Component {
   render() {
     return (
       <RaisedTextButton title='touch me' />
@@ -28,31 +36,37 @@ export default class Example extends Component {
 
 ## Common properties
 
-* `color`                  - Button color (default: rgb(224, 224, 224))
-* `shadeColor`             - Button shade color for focused state (default: rgb(0, 0, 0))
-* `shadeOpacity`           - Button shade opacity for focused state (default: 0.12)
-* `shadeBorderRadius`      - Button shade border radius (default: 2)
-* `focusAnimationDuration` - Button focus animation duration in ms (default: 225)
-* `disabled`               - Button availability (default: false)
-* `disabledColor`          - Button color for disabled state (default: rgba(0, 0, 0, .12))
-* `onPress`                - Touch up callback
+name                   | description                            | type     | default
+---------------------- | -------------------------------------- | --------:| ------------------
+color                  | Button color                           |   String | rgb(224, 224, 224)
+shadeColor             | Button shade color for focused state   |   String | rgb(0, 0, 0)
+shadeOpacity           | Button shade opacity for focused state |   Number | 0.12
+shadeBorderRadius      | Button shade border radius             |   Number | 2
+focusAnimationDuration | Button focus animation duration in ms  |   Number | 225
+disabled               | Button availability                    |  Boolean | false
+disabledColor          | Button color for disabled state        |   String | rgba(0, 0, 0, .12)
+onPress                | Touch up callback                      | Function | -
 
 ## TextButton properties
 
-* `title`                  - Button title
-* `titleColor`             - Button title color (default: rgb(0, 0, 0))
-* `disabledTitleColor`     - Button title color for disabled state (default: rgb(153, 153, 153))
+name               | description                           | type     | default
+------------------ | ------------------------------------- | --------:| ------------------
+title              | Button title                          |   String | -
+titleColor         | Button title color                    |   String | rgb(0, 0, 0)
+disabledTitleColor | Button title color for disabled state |   String | rgb(153, 153, 153)
 
 ## RaisedTextButton properties
 
-* `title`                  - Button title
-* `titleColor`             - Button title color (default: rgb(66, 66, 66))
-* `disabledTitleColor`     - Button title color for disabled state (default: rgba(0, 0, 0, .26))
+name               | description                           | type     | default
+------------------ | ------------------------------------- | --------:| ------------------
+title              | Button title                          |   String | -
+titleColor         | Button title color                    |   String | rgb(66, 66, 66)
+disabledTitleColor | Button title color for disabled state |   String | rgba(0, 0, 0, .26)
 
 ## Example
 
 ```bash
-git clone https://github.com/n4kz/react-native-material-buttons.git
+git clone https://github.com/n4kz/react-native-material-buttons
 cd react-native-material-buttons/example
 npm install
 react-native run-ios # or run-android
