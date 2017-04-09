@@ -1,10 +1,10 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import { Text } from 'react-native';
 
-import { styles } from './styles';
 import Button from '../button';
+import { styles } from './styles';
 
-export default class TextButton extends Component {
+export default class TextButton extends PureComponent {
   static defaultProps = {
     color: 'transparent',
     disabledColor: 'transparent',

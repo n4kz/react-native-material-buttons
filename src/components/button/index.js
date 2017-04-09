@@ -1,10 +1,10 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import { Animated, Easing } from 'react-native';
 import Ripple from 'react-native-material-ripple';
 
 import { styles } from './styles';
 
-export default class Button extends Component {
+export default class Button extends PureComponent {
   static defaultProps = {
     rippleContainerBorderRadius: 2,
     hitSlop: { top: 6, right: 4, bottom: 6, left: 4 },

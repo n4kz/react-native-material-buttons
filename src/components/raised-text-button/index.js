@@ -1,10 +1,10 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import { Text } from 'react-native';
 
-import { styles } from './styles';
 import RaisedButton from '../raised-button';
+import { styles } from './styles';
 
-export default class RaisedTextButton extends Component {
+export default class RaisedTextButton extends PureComponent {
   static defaultProps = {
     titleColor: 'rgb(66, 66, 66)',
     disabledTitleColor: 'rgba(0, 0, 0, .26)',

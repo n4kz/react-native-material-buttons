@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Animated, Platform } from 'react-native';
 
 import { styles } from './styles';
 import Button from '../button';
 
-export default class RaisedButton extends Component {
+export default class RaisedButton extends PureComponent {
   static propTypes = {
     ...Button.propTypes,
   };
