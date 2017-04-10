@@ -40,12 +40,21 @@ export default class Button extends PureComponent {
   constructor(props) {
     super(props);
 
+    this.onPress = this.onPress.bind(this);
     this.onPressIn = this.onPressIn.bind(this);
     this.onPressOut = this.onPressOut.bind(this);
 
     this.state = {
       focusAnimation: this.props.focusAnimation || new Animated.Value(0),
     };
+  }
+
+  onPress() {
+    let { onPress } = this.props;
+
+    if ('function' === typeof onPress) {
+      onPress();
+    }
   }
 
   onPressIn() {
@@ -107,6 +116,7 @@ export default class Button extends PureComponent {
 
         {...props}
 
+        onPress={this.onPress}
         onPressIn={this.onPressIn}
         onPressOut={this.onPressOut}
       >
