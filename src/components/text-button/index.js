@@ -24,7 +24,7 @@ export default class TextButton extends PureComponent {
   };
 
   render() {
-    let { title, titleColor, disabledTitleColor, style, ...props } = this.props; 
+    let { title, titleColor, disabledTitleColor, style, ...props } = this.props;
     let { disabled } = this.props;
 
     let titleStyle = {

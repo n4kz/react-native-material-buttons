@@ -18,7 +18,7 @@ export default class RaisedButton extends PureComponent {
   }
 
   render() {
-    let { style, children, ...props } = this.props; 
+    let { style, children, ...props } = this.props;
     let { disabled } = this.props;
     let { focusAnimation } = this.state;
 

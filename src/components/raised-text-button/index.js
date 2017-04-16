@@ -19,7 +19,7 @@ export default class RaisedTextButton extends PureComponent {
   };
 
   render() {
-    let { title, titleColor, disabledTitleColor, ...props } = this.props; 
+    let { title, titleColor, disabledTitleColor, ...props } = this.props;
     let { disabled } = this.props;
 
     let titleStyle = {
