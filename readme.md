@@ -37,32 +37,32 @@ class Example extends Component {
 
 ## Common properties
 
-name                   | description                            | type     | default
----------------------- | -------------------------------------- | --------:| ------------------
-color                  | Button color                           |   String | rgb(224, 224, 224)
-shadeColor             | Button shade color for focused state   |   String | rgb(0, 0, 0)
-shadeOpacity           | Button shade opacity for focused state |   Number | 0.12
-shadeBorderRadius      | Button shade border radius             |   Number | 2
-focusAnimationDuration | Button focus animation duration in ms  |   Number | 225
-disabled               | Button availability                    |  Boolean | false
-disabledColor          | Button color for disabled state        |   String | rgba(0, 0, 0, .12)
-onPress                | Touch up callback                      | Function | -
+ name                   | description                            | type     | default
+:---------------------- |:-------------------------------------- | --------:|:------------------
+ color                  | Button color                           |   String | rgb(224, 224, 224)
+ shadeColor             | Button shade color for focused state   |   String | rgb(0, 0, 0)
+ shadeOpacity           | Button shade opacity for focused state |   Number | 0.12
+ shadeBorderRadius      | Button shade border radius             |   Number | 2
+ focusAnimationDuration | Button focus animation duration in ms  |   Number | 225
+ disabled               | Button availability                    |  Boolean | false
+ disabledColor          | Button color for disabled state        |   String | rgba(0, 0, 0, .12)
+ onPress                | Touch up callback                      | Function | -
 
 ## TextButton properties
 
-name               | description                           | type     | default
------------------- | ------------------------------------- | --------:| ------------------
-title              | Button title                          |   String | -
-titleColor         | Button title color                    |   String | rgb(0, 0, 0)
-disabledTitleColor | Button title color for disabled state |   String | rgb(153, 153, 153)
+ name               | description                           | type     | default
+:------------------ |:------------------------------------- | --------:|:------------------
+ title              | Button title                          |   String | -
+ titleColor         | Button title color                    |   String | rgb(0, 0, 0)
+ disabledTitleColor | Button title color for disabled state |   String | rgb(153, 153, 153)
 
 ## RaisedTextButton properties
 
-name               | description                           | type     | default
------------------- | ------------------------------------- | --------:| ------------------
-title              | Button title                          |   String | -
-titleColor         | Button title color                    |   String | rgb(66, 66, 66)
-disabledTitleColor | Button title color for disabled state |   String | rgba(0, 0, 0, .26)
+ name               | description                           | type     | default
+:------------------ |:------------------------------------- | --------:|:------------------
+ title              | Button title                          |   String | -
+ titleColor         | Button title color                    |   String | rgb(66, 66, 66)
+ disabledTitleColor | Button title color for disabled state |   String | rgba(0, 0, 0, .26)
 
 ## Example
 
@@ -70,7 +70,7 @@ disabledTitleColor | Button title color for disabled state |   String | rgba(0, 
 git clone https://github.com/n4kz/react-native-material-buttons
 cd react-native-material-buttons/example
 npm install
-react-native run-ios # or run-android
+npm run ios # or npm run android
 ```
 
 ## Copyright and License
