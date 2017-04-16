@@ -33,7 +33,7 @@ export default class TextButton extends PureComponent {
 
     return (
       <Button rippleColor={titleColor} shadeColor={titleColor} style={[styles.container, style]} {...props}>
-        <Text style={[styles.text, titleStyle]} numberOfLines={1} pointerEvents='none'>
+        <Text style={[styles.text, titleStyle]} numberOfLines={1}>
           {String(title).toUpperCase()}
         </Text>
       </Button>

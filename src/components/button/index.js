@@ -121,7 +121,7 @@ export default class Button extends PureComponent {
         onPressOut={this.onPressOut}
       >
         {children}
-        <Animated.View style={[ styles.shade, shadeStyle ]} pointerEvents='none' />
+        <Animated.View style={[ styles.shade, shadeStyle ]} />
       </Ripple>
     );
   }
