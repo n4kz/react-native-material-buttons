@@ -7,6 +7,8 @@ import { styles } from './styles';
 export default class Button extends PureComponent {
   static defaultProps = {
     rippleContainerBorderRadius: 2,
+    rippleSequential: true,
+
     hitSlop: { top: 6, right: 4, bottom: 6, left: 4 },
 
     color: 'rgb(224, 224, 224)',
