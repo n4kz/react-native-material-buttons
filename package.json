@@ -1,11 +1,11 @@
 {
   "name": "react-native-material-buttons",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "license": "BSD-3-Clause",
   "author": "Alexander Nazarov <n4kz@n4kz.com>",
 
   "description": "Material buttons",
-  "keywords": ["react", "react-component", "react-native", "ios", "android", "button", "ripple", "material"],
+  "keywords": ["react", "react-component", "react-native", "ios", "android", "raised", "flat", "button", "ripple", "material"],
 
   "main": "index.js",
 
