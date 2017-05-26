@@ -115,10 +115,9 @@ export default class Button extends PureComponent {
 
     return (
       <Ripple
-        style={[ styles.ripple, rippleStyle, style ]}
-
         {...props}
 
+        style={[styles.container, rippleStyle, style]}
         onPress={this.onPress}
         onPressIn={this.onPressIn}
         onPressOut={this.onPressOut}

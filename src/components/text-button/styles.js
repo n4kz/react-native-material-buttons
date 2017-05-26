@@ -2,6 +2,7 @@ import { StyleSheet, Platform } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
+    height: 36,
     minWidth: 64,
     paddingHorizontal: 8,
   },
