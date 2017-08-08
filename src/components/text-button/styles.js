@@ -1,4 +1,17 @@
 import { StyleSheet, Platform } from 'react-native';
+import RN from 'react-native/package.json';
+
+let style = {};
+let [, major, minor] = RN.version
+  .match(/^(\d+)\.(\d+)\.(.+)$/);
+
+if ('android' === Platform.OS) {
+  style.textAlignVertical = 'center';
+
+  if (!major && minor >= 40) {
+    style.includeFontPadding = false;
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -15,14 +28,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '500',
 
-    ...Platform.select({
-      ios: {},
-
-      android: {
-        includeFontPadding: false,
-        textAlignVertical: 'center',
-      },
-    }),
+    ...style,
   },
 });
 
