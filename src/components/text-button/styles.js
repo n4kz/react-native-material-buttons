@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
   },
 
-  text: {
+  title: {
     textAlign: 'center',
 
     backgroundColor: 'transparent',

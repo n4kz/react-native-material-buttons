@@ -21,20 +21,37 @@ export default class TextButton extends PureComponent {
 
     title: PropTypes.string.isRequired,
     titleColor: PropTypes.string,
+    titleStyle: Text.propTypes.style,
     disabledTitleColor: PropTypes.string,
   };
 
   render() {
-    let { title, titleColor, disabledTitleColor, style, ...props } = this.props;
-    let { disabled } = this.props;
+    let {
+      title,
+      titleColor,
+      titleStyle,
+      disabledTitleColor,
+      style,
+      ...props
+    } = this.props;
 
-    let titleStyle = {
-      color: disabled? disabledTitleColor : titleColor,
+    let titleStyleOverrides = {
+      color: props.disabled?
+        disabledTitleColor:
+        titleColor,
     };
 
     return (
-      <Button rippleColor={titleColor} shadeColor={titleColor} style={[styles.container, style]} {...props}>
-        <Text style={[styles.text, titleStyle]} numberOfLines={1}>
+      <Button
+        style={[styles.container, style]}
+        shadeColor={titleColor}
+        rippleColor={titleColor}
+        {...props}
+      >
+        <Text
+          style={[styles.title, titleStyle, titleStyleOverrides]}
+          numberOfLines={1}
+        >
           {String(title).toUpperCase()}
         </Text>
       </Button>
