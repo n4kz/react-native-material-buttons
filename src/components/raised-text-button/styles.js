@@ -14,7 +14,7 @@ if ('android' === Platform.OS) {
 }
 
 const styles = StyleSheet.create({
-  text: {
+  title: {
     textAlign: 'center',
 
     backgroundColor: 'transparent',

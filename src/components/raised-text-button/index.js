@@ -21,17 +21,26 @@ export default class RaisedTextButton extends PureComponent {
   };
 
   render() {
-    let { title, titleColor, disabledTitleColor, titleStyle, ...props } = this.props;
-    let { disabled } = this.props;
+    let {
+      title,
+      titleColor,
+      titleStyle,
+      disabledTitleColor,
+      ...props
+    } = this.props;
 
-    let titleStyle = {
-      ...titleStyle,
-      color: disabled? disabledTitleColor : titleColor,
+    let titleStyleOverrides = {
+      color: props.disabled?
+        disabledTitleColor:
+        titleColor,
     };
 
     return (
       <RaisedButton rippleColor={titleColor} shadeColor={titleColor} {...props}>
-        <Text style={[styles.text, titleStyle]} numberOfLines={1}>
+        <Text
+          style={[styles.title, titleStyle, titleStyleOverrides]}
+          numberOfLines={1}
+        >
           {String(title).toUpperCase()}
         </Text>
       </RaisedButton>
