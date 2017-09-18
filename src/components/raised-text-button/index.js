@@ -7,16 +7,16 @@ import { styles } from './styles';
 
 export default class RaisedTextButton extends PureComponent {
   static defaultProps = {
-    titleStyle: {},
     titleColor: 'rgb(66, 66, 66)',
     disabledTitleColor: 'rgba(0, 0, 0, .26)',
   };
 
   static propTypes = {
     ...RaisedButton.propTypes,
-    titleStyle: PropTypes.object,
+
     title: PropTypes.string.isRequired,
     titleColor: PropTypes.string,
+    titleStyle: Text.propTypes.style,
     disabledTitleColor: PropTypes.string,
   };
 
