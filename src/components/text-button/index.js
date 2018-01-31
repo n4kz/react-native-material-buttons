@@ -23,6 +23,7 @@ export default class TextButton extends PureComponent {
     titleColor: PropTypes.string,
     titleStyle: Text.propTypes.style,
     disabledTitleColor: PropTypes.string,
+    numberOfLines: PropTypes.number,
   };
 
   render() {
@@ -31,6 +32,7 @@ export default class TextButton extends PureComponent {
       titleColor,
       titleStyle,
       disabledTitleColor,
+      numberOfLines,
       style,
       ...props
     } = this.props;
@@ -50,7 +52,7 @@ export default class TextButton extends PureComponent {
       >
         <Text
           style={[styles.title, titleStyle, titleStyleOverrides]}
-          numberOfLines={1}
+          numberOfLines={numberOfLines}
         >
           {String(title).toUpperCase()}
         </Text>
