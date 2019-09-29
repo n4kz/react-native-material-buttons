@@ -69,6 +69,7 @@ export default class Button extends PureComponent {
         toValue: 1,
         duration: focusAnimationDuration,
         easing: Easing.out(Easing.ease),
+        useNativeDriver: true,
       })
       .start();
   }
@@ -82,6 +83,7 @@ export default class Button extends PureComponent {
         toValue: 0,
         duration: focusAnimationDuration,
         easing: Easing.out(Easing.ease),
+        useNativeDriver: true,
       })
       .start();
   }
