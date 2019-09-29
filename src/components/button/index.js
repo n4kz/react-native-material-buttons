@@ -47,8 +47,10 @@ export default class Button extends PureComponent {
     this.onPressIn = this.onPressIn.bind(this);
     this.onPressOut = this.onPressOut.bind(this);
 
+    let { focusAnimation = new Animated.Value(0) } = this.props;
+
     this.state = {
-      focusAnimation: this.props.focusAnimation || new Animated.Value(0),
+      focusAnimation,
     };
   }
 
@@ -86,14 +88,6 @@ export default class Button extends PureComponent {
         useNativeDriver: true,
       })
       .start();
-  }
-
-  componentWillReceiveProps(props) {
-    let { focusAnimation } = props;
-
-    if (focusAnimation && focusAnimation !== this.state.focusAnimation) {
-      this.setState({ focusAnimation });
-    }
   }
 
   render() {
