@@ -38,6 +38,8 @@ export default class Button extends PureComponent {
     focusAnimationDuration: PropTypes.number,
 
     disabledColor: PropTypes.string,
+
+    payload: PropTypes.any,
   };
 
   constructor(props) {
@@ -55,10 +57,10 @@ export default class Button extends PureComponent {
   }
 
   onPress() {
-    let { onPress } = this.props;
+    let { onPress, payload } = this.props;
 
     if ('function' === typeof onPress) {
-      onPress();
+      onPress(payload);
     }
   }
 
