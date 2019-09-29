@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import { Animated, Easing } from 'react-native';
+import { View, Animated, Easing } from 'react-native';
 import Ripple from 'react-native-material-ripple';
 
 import { styles } from './styles';
@@ -109,9 +109,12 @@ export default class Button extends PureComponent {
       backgroundColor: props.disabled? disabledColor : color,
     };
 
+    let shadeContainerStyle = {
+      borderRadius: shadeBorderRadius,
+    };
+
     let shadeStyle = {
       backgroundColor: shadeColor,
-      borderRadius: shadeBorderRadius,
       opacity,
     };
 
@@ -125,7 +128,9 @@ export default class Button extends PureComponent {
         onPressOut={this.onPressOut}
       >
         {children}
-        <Animated.View style={[ styles.shade, shadeStyle ]} />
+        <View style={[ styles.shadeContainer, shadeContainerStyle ]}>
+          <Animated.View style={[ styles.shade, shadeStyle ]} />
+        </View>
       </Ripple>
     );
   }
