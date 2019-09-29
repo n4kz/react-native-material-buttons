@@ -18,7 +18,6 @@ export default class Button extends PureComponent {
     shadeOpacity: 0.12,
     shadeBorderRadius: 2,
 
-    focusAnimation: null,
     focusAnimationDuration: 225,
 
     disabledColor: 'rgba(0, 0, 0, .12)',

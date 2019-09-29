@@ -12,8 +12,10 @@ export default class RaisedButton extends PureComponent {
   constructor(props) {
     super(props);
 
+    let { focusAnimation = new Animated.Value(0) } = this.props;
+
     this.state = {
-      focusAnimation: new Animated.Value(0),
+      focusAnimation,
     };
   }
 
