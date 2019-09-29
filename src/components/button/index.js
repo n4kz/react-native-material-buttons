@@ -91,8 +91,17 @@ export default class Button extends PureComponent {
   }
 
   render() {
-    let { color, disabledColor, shadeColor, shadeOpacity, shadeBorderRadius, style, children, ...props } = this.props;
     let { focusAnimation } = this.state;
+    let {
+      color,
+      disabledColor,
+      shadeColor,
+      shadeOpacity,
+      shadeBorderRadius,
+      style,
+      children,
+      ...props
+    } = this.props;
 
     let opacity = focusAnimation.interpolate({
       inputRange: [0, 1],
@@ -100,7 +109,9 @@ export default class Button extends PureComponent {
     });
 
     let rippleStyle = {
-      backgroundColor: props.disabled? disabledColor : color,
+      backgroundColor: props.disabled?
+        disabledColor:
+        color,
     };
 
     let shadeContainerStyle = {
@@ -116,12 +127,13 @@ export default class Button extends PureComponent {
       <Ripple
         {...props}
 
-        style={[styles.container, rippleStyle, style]}
+        style={[ styles.container, rippleStyle, style ]}
         onPress={this.onPress}
         onPressIn={this.onPressIn}
         onPressOut={this.onPressOut}
       >
         {children}
+
         <View style={[ styles.shadeContainer, shadeContainerStyle ]}>
           <Animated.View style={[ styles.shade, shadeStyle ]} />
         </View>
