@@ -21,21 +21,36 @@ export default class RaisedButton extends PureComponent {
 
   render() {
     let { style, children, ...props } = this.props;
-    let { disabled } = this.props;
     let { focusAnimation } = this.state;
 
-    let buttonStyle = {
-      ...((disabled && Platform.OS === 'ios')? { shadowColor: 'transparent' } : {}),
+    let buttonStyle = Platform.select({
+      ios: {
+        ...(props.disabled? { shadowColor: 'transparent' } : {}),
 
-      [Platform.select({ ios: 'shadowRadius', android: 'elevation' })]:
-        disabled? 0 : focusAnimation.interpolate({
-          inputRange: [0, 1],
-          outputRange: [2, Platform.select({ ios: 4, android: 8 })],
-        }),
-    };
+        shadowRadius: props.disabled?
+          0:
+          focusAnimation.interpolate({
+            inputRange: [0, 1],
+            outputRange: [2, 4],
+          }),
+      },
+
+      android: {
+        elevation: props.disabled?
+          0:
+          focusAnimation.interpolate({
+            inputRange: [0, 1],
+            outputRange: [2, 8],
+          }),
+      },
+    });
 
     return (
-      <Button style={[styles.container, buttonStyle, style]} {...props} focusAnimation={focusAnimation}>
+      <Button
+        {...props}
+        style={[ styles.container, buttonStyle, style ]}
+        focusAnimation={focusAnimation}
+      >
         {children}
       </Button>
     );
