@@ -48,6 +48,7 @@ class Example extends Component {
  disabled               | Button availability                    |  Boolean | false
  disabledColor          | Button color for disabled state        |   String | rgba(0, 0, 0, .12)
  onPress                | Touch up callback                      | Function | -
+ payload                | Payload object for onPress callback    |      Any | -
 
 Other [Ripple][ripple] properties will also work
 
@@ -82,4 +83,4 @@ npm run ios # or npm run android
 
 BSD License
 
-Copyright 2017 Alexander Nazarov. All rights reserved.
+Copyright 2017-2019 Alexander Nazarov. All rights reserved.
