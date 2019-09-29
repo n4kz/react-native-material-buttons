@@ -41,7 +41,7 @@ export default class RaisedTextButton extends PureComponent {
           style={[styles.title, titleStyle, titleStyleOverrides]}
           numberOfLines={1}
         >
-          {String(title).toUpperCase()}
+          {title}
         </Text>
       </RaisedButton>
     );

@@ -52,7 +52,7 @@ export default class TextButton extends PureComponent {
           style={[styles.title, titleStyle, titleStyleOverrides]}
           numberOfLines={1}
         >
-          {String(title).toUpperCase()}
+          {title}
         </Text>
       </Button>
     );

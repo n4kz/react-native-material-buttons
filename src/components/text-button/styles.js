@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
 
   title: {
     textAlign: 'center',
+    textTransform: 'uppercase',
 
     backgroundColor: 'transparent',
 
