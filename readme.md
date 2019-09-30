@@ -38,17 +38,20 @@ class Example extends Component {
 
 ## Common properties
 
- name                   | description                            | type     | default
-:---------------------- |:-------------------------------------- | --------:|:------------------
- color                  | Button color                           |   String | rgb(224, 224, 224)
- shadeColor             | Button shade color for focused state   |   String | rgb(0, 0, 0)
- shadeOpacity           | Button shade opacity for focused state |   Number | 0.12
- shadeBorderRadius      | Button shade border radius             |   Number | 2
- focusAnimationDuration | Button focus animation duration in ms  |   Number | 225
- disabled               | Button availability                    |  Boolean | false
- disabledColor          | Button color for disabled state        |   String | rgba(0, 0, 0, .12)
- onPress                | Touch up callback                      | Function | -
- payload                | Payload object for onPress callback    |      Any | -
+ name                     | description                            | type           | default
+:------------------------ |:-------------------------------------- | --------------:|:------------------
+ color                    | Button color                           |         String | rgb(224, 224, 224)
+ disabledColor            | Button color for disabled state        |         String | rgb(240, 240, 240)
+ shadeColor               | Button shade color for focused state   |         String | rgb(0, 0, 0)
+ shadeOpacity             | Button shade opacity for focused state |         Number | 0.12
+ shadeBorderRadius        | Button shade border radius             |         Number | 2
+ focusAnimation           | Focus animation state                  | Animated.Value | -
+ disableAnimation         | Disable animation state                | Animated.Value | -
+ focusAnimationDuration   | Focus animation duration in ms         |         Number | 225
+ disableAnimationDuration | Disable animation duration in ms       |         Number | 225
+ disabled                 | Button availability                    |        Boolean | false
+ onPress                  | Touch up callback                      |       Function | -
+ payload                  | Payload object for onPress callback    |            Any | -
 
 Other [Ripple][ripple] properties will also work
 
