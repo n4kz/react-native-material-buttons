@@ -48,8 +48,8 @@ export default class Button extends PureComponent {
     super(props);
 
     this.onPress = this.onPress.bind(this);
-    this.onPressIn = this.onPressIn.bind(this);
-    this.onPressOut = this.onPressOut.bind(this);
+    this.onPressIn = this.onFocusChange.bind(this, true);
+    this.onPressOut = this.onFocusChange.bind(this, false);
 
     let {
       disabled,
@@ -84,26 +84,13 @@ export default class Button extends PureComponent {
     }
   }
 
-  onPressIn() {
+  onFocusChange(focused) {
     let { focusAnimation } = this.state;
     let { focusAnimationDuration } = this.props;
 
     Animated
       .timing(focusAnimation, {
-        toValue: 1,
-        duration: focusAnimationDuration,
-        easing: Easing.out(Easing.ease),
-      })
-      .start();
-  }
-
-  onPressOut() {
-    let { focusAnimation } = this.state;
-    let { focusAnimationDuration } = this.props;
-
-    Animated
-      .timing(focusAnimation, {
-        toValue: 0,
+        toValue: focused? 1 : 0,
         duration: focusAnimationDuration,
         easing: Easing.out(Easing.ease),
       })
