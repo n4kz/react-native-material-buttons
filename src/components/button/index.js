@@ -13,14 +13,15 @@ export default class Button extends PureComponent {
     hitSlop: { top: 6, right: 4, bottom: 6, left: 4 },
 
     color: 'rgb(224, 224, 224)',
+    disabledColor: 'rgb(240, 240, 240)',
 
     shadeColor: 'rgb(0, 0, 0)',
     shadeOpacity: 0.12,
     shadeBorderRadius: 2,
 
     focusAnimationDuration: 225,
+    disableAnimationDuration: 225,
 
-    disabledColor: 'rgba(0, 0, 0, .12)',
     disabled: false,
   };
 
@@ -28,6 +29,7 @@ export default class Button extends PureComponent {
     ...Ripple.propTypes,
 
     color: PropTypes.string,
+    disabledColor: PropTypes.string,
 
     shadeColor: PropTypes.string,
     shadeOpacity: PropTypes.number,
@@ -36,7 +38,8 @@ export default class Button extends PureComponent {
     focusAnimation: PropTypes.instanceOf(Animated.Value),
     focusAnimationDuration: PropTypes.number,
 
-    disabledColor: PropTypes.string,
+    disableAnimation: PropTypes.instanceOf(Animated.Value),
+    disableAnimationDuration: PropTypes.number,
 
     payload: PropTypes.any,
   };
@@ -48,11 +51,29 @@ export default class Button extends PureComponent {
     this.onPressIn = this.onPressIn.bind(this);
     this.onPressOut = this.onPressOut.bind(this);
 
-    let { focusAnimation = new Animated.Value(0) } = this.props;
+    let {
+      disabled,
+      focusAnimation = new Animated.Value(0),
+      disableAnimation = new Animated.Value(disabled? 1 : 0),
+    } = this.props;
 
     this.state = {
       focusAnimation,
+      disableAnimation,
     };
+  }
+
+  componentDidUpdate(prevProps) {
+    let { disabled } = this.props;
+
+    if (disabled ^ prevProps.disabled) {
+      let { disableAnimationDuration: duration } = this.props;
+      let { disableAnimation } = this.state;
+
+      Animated
+        .timing(disableAnimation, { toValue: disabled? 1 : 0, duration })
+        .start();
+    }
   }
 
   onPress() {
@@ -72,7 +93,6 @@ export default class Button extends PureComponent {
         toValue: 1,
         duration: focusAnimationDuration,
         easing: Easing.out(Easing.ease),
-        useNativeDriver: true,
       })
       .start();
   }
@@ -86,13 +106,12 @@ export default class Button extends PureComponent {
         toValue: 0,
         duration: focusAnimationDuration,
         easing: Easing.out(Easing.ease),
-        useNativeDriver: true,
       })
       .start();
   }
 
   render() {
-    let { focusAnimation } = this.state;
+    let { focusAnimation, disableAnimation } = this.state;
     let {
       color,
       disabledColor,
@@ -104,15 +123,11 @@ export default class Button extends PureComponent {
       ...props
     } = this.props;
 
-    let opacity = focusAnimation.interpolate({
-      inputRange: [0, 1],
-      outputRange: [0, shadeOpacity],
-    });
-
     let rippleStyle = {
-      backgroundColor: props.disabled?
-        disabledColor:
-        color,
+      backgroundColor: disableAnimation.interpolate({
+        inputRange: [0, 1],
+        outputRange: [color, disabledColor],
+      }),
     };
 
     let shadeContainerStyle = {
@@ -121,7 +136,10 @@ export default class Button extends PureComponent {
 
     let shadeStyle = {
       backgroundColor: shadeColor,
-      opacity,
+      opacity: focusAnimation.interpolate({
+        inputRange: [0, 1],
+        outputRange: [0, shadeOpacity],
+      }),
     };
 
     return (
