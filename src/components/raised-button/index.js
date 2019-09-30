@@ -12,36 +12,52 @@ export default class RaisedButton extends PureComponent {
   constructor(props) {
     super(props);
 
-    let { focusAnimation = new Animated.Value(0) } = this.props;
+    let {
+      disabled,
+      focusAnimation = new Animated.Value(0),
+      disableAnimation = new Animated.Value(disabled? 1 : 0),
+    } = this.props;
 
     this.state = {
       focusAnimation,
+      disableAnimation,
     };
   }
 
   render() {
+    let { focusAnimation, disableAnimation } = this.state;
     let { style, children, ...props } = this.props;
-    let { focusAnimation } = this.state;
+
+    let animation = Animated
+      .subtract(focusAnimation, disableAnimation);
 
     let buttonStyle = Platform.select({
       ios: {
-        ...(props.disabled? { shadowColor: 'transparent' } : {}),
+        shadowOpacity: disableAnimation.interpolate({
+          inputRange: [0, 1],
+          outputRange: [0.30, 0],
+        }),
 
-        shadowRadius: props.disabled?
-          0:
-          focusAnimation.interpolate({
-            inputRange: [0, 1],
-            outputRange: [2, 4],
+        shadowRadius: animation.interpolate({
+          inputRange: [-1, 0, 1],
+          outputRange: [0, 2, 4],
+        }),
+
+        shadowOffset: {
+          width: 0,
+
+          height: animation.interpolate({
+            inputRange: [-1, 0, 1],
+            outputRange: [0, 1, 2],
           }),
+        },
       },
 
       android: {
-        elevation: props.disabled?
-          0:
-          focusAnimation.interpolate({
-            inputRange: [0, 1],
-            outputRange: [2, 8],
-          }),
+        elevation: animation.interpolate({
+          inputRange: [-1, 0, 1],
+          outputRange: [0, 2, 8],
+        }),
       },
     });
 
@@ -50,6 +66,7 @@ export default class RaisedButton extends PureComponent {
         {...props}
         style={[ styles.container, buttonStyle, style ]}
         focusAnimation={focusAnimation}
+        disableAnimation={disableAnimation}
       >
         {children}
       </Button>

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import { Text } from 'react-native';
+import { Animated } from 'react-native';
 
 import Button from '../button';
 import { styles } from './styles';
@@ -21,11 +21,25 @@ export default class TextButton extends PureComponent {
 
     title: PropTypes.string.isRequired,
     titleColor: PropTypes.string,
-    titleStyle: Text.propTypes.style,
+    titleStyle: Animated.Text.propTypes.style,
     disabledTitleColor: PropTypes.string,
   };
 
+  constructor(props) {
+    super(props);
+
+    let {
+      disabled,
+      disableAnimation = new Animated.Value(disabled? 1 : 0),
+    } = this.props;
+
+    this.state = {
+      disableAnimation,
+    };
+  }
+
   render() {
+    let { disableAnimation } = this.state;
     let {
       title,
       titleColor,
@@ -36,9 +50,10 @@ export default class TextButton extends PureComponent {
     } = this.props;
 
     let titleStyleOverrides = {
-      color: props.disabled?
-        disabledTitleColor:
-        titleColor,
+      color: disableAnimation.interpolate({
+        inputRange: [0, 1],
+        outputRange: [titleColor, disabledTitleColor],
+      }),
     };
 
     return (
@@ -47,13 +62,14 @@ export default class TextButton extends PureComponent {
         shadeColor={titleColor}
         rippleColor={titleColor}
         {...props}
+        disableAnimation={disableAnimation}
       >
-        <Text
+        <Animated.Text
           style={[styles.title, titleStyle, titleStyleOverrides]}
           numberOfLines={1}
         >
           {title}
-        </Text>
+        </Animated.Text>
       </Button>
     );
   }
