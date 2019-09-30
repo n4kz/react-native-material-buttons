@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, Text, ScrollView, View } from 'react-native';
+import { AppRegistry, Text, ScrollView, View, SafeAreaView } from 'react-native';
 import { TextButton, RaisedTextButton } from 'react-native-material-buttons';
 
 let styles = {
@@ -14,6 +14,11 @@ let styles = {
     justifyContent: 'space-around',
     marginBottom: 8,
     backgroundColor: 'rgba(0,0,0,.05)',
+  },
+
+  safeContainer: {
+    flex: 1,
+    backgroundColor: '#E8EAF6',
   },
 
   column: {
@@ -75,44 +80,46 @@ export default function init() {
   class Example extends Component {
     render() {
       return (
-        <ScrollView style={styles.scroll}>
-          <View style={styles.card}>
-            <View style={styles.content}>
-              <Text style={styles.display}>default</Text>
-              <Text style={styles.text}>Buttons with default props, raised or flat, enabled or <Strong>disabled</Strong></Text>
+        <SafeAreaView style={styles.safeContainer}>
+          <ScrollView style={styles.scroll}>
+            <View style={styles.card}>
+              <View style={styles.content}>
+                <Text style={styles.display}>default</Text>
+                <Text style={styles.text}>Buttons with default props, raised or flat, enabled or <Strong>disabled</Strong></Text>
+              </View>
+
+              <RaisedTextButton style={{ marginVertical: 4 }} title="default button" />
+              <RaisedTextButton style={{ marginVertical: 4 }} title="disabled button" disabled />
+              <TextButton style={{ marginVertical: 4 }} title="default flat button" />
+              <TextButton style={{ marginVertical: 4 }} title="disabled flat button" disabled />
             </View>
 
-            <RaisedTextButton style={{ marginVertical: 4 }} title="default button" />
-            <RaisedTextButton style={{ marginVertical: 4 }} title="disabled button" disabled />
-            <TextButton style={{ marginVertical: 4 }} title="default flat button" />
-            <TextButton style={{ marginVertical: 4 }} title="disabled flat button" disabled />
-          </View>
+            <View style={styles.card}>
+              <View style={styles.content}>
+                <Text style={styles.display}>raised</Text>
+                <Text style={styles.text}>Buttons with custom <Strong>color</Strong>, <Strong>titleColor</Strong>, increased <Strong>rippleDuration</Strong> and <Strong>rippleOpacity</Strong></Text>
+              </View>
 
-          <View style={styles.card}>
-            <View style={styles.content}>
-              <Text style={styles.display}>raised</Text>
-              <Text style={styles.text}>Buttons with custom <Strong>color</Strong>, <Strong>titleColor</Strong>, increased <Strong>rippleDuration</Strong> and <Strong>rippleOpacity</Strong></Text>
+              <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
+                <RaisedTextButton style={styles.button} rippleDuration={600} rippleOpacity={0.54} title='flat'   color='#039BE5' titleColor='white' />
+                <RaisedTextButton style={styles.button} rippleDuration={600} rippleOpacity={0.54} title='is'     color='#0288D1' titleColor='white' />
+                <RaisedTextButton style={styles.button} rippleDuration={600} rippleOpacity={0.54} title='boring' color='#0277BD' titleColor='white' />
+              </View>
             </View>
 
-            <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
-              <RaisedTextButton style={styles.button} rippleDuration={600} rippleOpacity={0.54} title='flat'   color='#039BE5' titleColor='white' />
-              <RaisedTextButton style={styles.button} rippleDuration={600} rippleOpacity={0.54} title='is'     color='#0288D1' titleColor='white' />
-              <RaisedTextButton style={styles.button} rippleDuration={600} rippleOpacity={0.54} title='boring' color='#0277BD' titleColor='white' />
-            </View>
-          </View>
+            <View style={styles.card}>
+              <View style={styles.content}>
+                <Text style={styles.display}>flat</Text>
+                <Text style={styles.text}>Buttons with custom <Strong>titleColor</Strong> and <Strong>color</Strong></Text>
+              </View>
 
-          <View style={styles.card}>
-            <View style={styles.content}>
-              <Text style={styles.display}>flat</Text>
-              <Text style={styles.text}>Buttons with custom <Strong>titleColor</Strong> and <Strong>color</Strong></Text>
+              <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
+                <TextButton style={{ margin: 4, marginLeft: 0 }} titleColor='#00796B' title='decline' />
+                <TextButton style={{ margin: 4 }} titleColor='#00695C' color='rgba(0, 0, 0, .05)' title='accept' />
+              </View>
             </View>
-
-            <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
-              <TextButton style={{ margin: 4, marginLeft: 0 }} titleColor='#00796B' title='decline' />
-              <TextButton style={{ margin: 4 }} titleColor='#00695C' color='rgba(0, 0, 0, .05)' title='accept' />
-            </View>
-          </View>
-        </ScrollView>
+          </ScrollView>
+        </SafeAreaView>
       );
     }
   }
