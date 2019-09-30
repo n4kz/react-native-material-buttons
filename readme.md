@@ -61,7 +61,7 @@ Other [Ripple][ripple] properties will also work
 :------------------ |:------------------------------------- | --------:|:------------------
  title              | Button title                          |   String | -
  titleColor         | Button title color                    |   String | rgb(0, 0, 0)
- disabledTitleColor | Button title color for disabled state |   String | rgb(153, 153, 153)
+ disabledTitleColor | Button title color for disabled state |   String | rgba(0, 0, 0, .26)
  titleStyle         | Button title style                    |   Object | -
 
 ## RaisedTextButton properties
