@@ -14,6 +14,14 @@ Material buttons with consistent behaviour on iOS and Android
 
 ![example][example-url]
 
+## Features
+
+* Easy to use
+* Consistent look and feel on iOS and Android
+* Animated state transitions
+* Ripple animation on touch
+* Pure javascript implementation
+
 ## Installation
 
 ```bash
@@ -27,10 +35,15 @@ import React, { Component } from 'react';
 import { TextButton, RaisedTextButton } from 'react-native-material-buttons';
 
 class Example extends Component {
+  _onPress = ({ id }) => {
+    console.log(`${id} pressed`);
+  };
+
   render() {
+    let payload = { id: 'button-1' };
+
     return (
-      <RaisedTextButton title='touch me' />
-      <TextButton title='do not touch me' disabled />
+      <RaisedTextButton title='touch me' onPress={this._onPress} payload={payload} />
     );
   }
 }
