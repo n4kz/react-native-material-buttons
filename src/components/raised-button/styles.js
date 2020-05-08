@@ -5,6 +5,9 @@ const styles = StyleSheet.create({
     height: 36,
     minWidth: 88,
     paddingHorizontal: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
 
     ...Platform.select({
       android: {
