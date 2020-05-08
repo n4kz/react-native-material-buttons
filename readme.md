@@ -70,21 +70,25 @@ Other [Ripple][ripple] properties will also work
 
 ## TextButton properties
 
- name               | description                           | type     | default
-:------------------ |:------------------------------------- | --------:|:------------------
- title              | Button title                          |   String | -
- titleColor         | Button title color                    |   String | rgb(0, 0, 0)
- disabledTitleColor | Button title color for disabled state |   String | rgba(0, 0, 0, .26)
- titleStyle         | Button title style                    |   Object | -
+ name               | description                            |  type     | default
+:------------------ |:-------------------------------------- | ---------:|:------------------
+ title              | Button title                           |    String | -
+ titleColor         | Button title color                     |    String | rgb(0, 0, 0)
+ disabledTitleColor | Button title color for disabled state  |    String | rgba(0, 0, 0, .26)
+ titleStyle         | Button title style                     |    Object | -
+ icon               | Icon component to place next to text   | Component | -
+ iconPlacement      | Which side of text Icon will appear on |    String | "left"
 
 ## RaisedTextButton properties
 
- name               | description                           | type     | default
-:------------------ |:------------------------------------- | --------:|:------------------
- title              | Button title                          |   String | -
- titleColor         | Button title color                    |   String | rgb(66, 66, 66)
- disabledTitleColor | Button title color for disabled state |   String | rgba(0, 0, 0, .26)
- titleStyle         | Button title style                    |   Object | -
+ name               | description                            |  type     | default
+:------------------ |:-------------------------------------- | ---------:|:------------------
+ title              | Button title                           |    String | -
+ titleColor         | Button title color                     |    String | rgb(66, 66, 66)
+ disabledTitleColor | Button title color for disabled state  |    String | rgba(0, 0, 0, .26)
+ titleStyle         | Button title style                     |    Object | -
+ icon               | Icon component to place next to text   | Component | -
+ iconPlacement      | Which side of text Icon will appear on |    String | "left"
 
 ## Example
 

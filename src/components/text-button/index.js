@@ -45,6 +45,8 @@ export default class TextButton extends PureComponent {
       titleColor,
       titleStyle,
       disabledTitleColor,
+      icon,
+      iconPlacement,
       style,
       ...props
     } = this.props;
@@ -64,12 +66,14 @@ export default class TextButton extends PureComponent {
         {...props}
         disableAnimation={disableAnimation}
       >
+        {icon && iconPlacement !== 'right' && icon}
         <Animated.Text
           style={[styles.title, titleStyle, titleStyleOverrides]}
           numberOfLines={1}
         >
           {title}
         </Animated.Text>
+        {icon && iconPlacement === 'right' && icon}
       </Button>
     );
   }

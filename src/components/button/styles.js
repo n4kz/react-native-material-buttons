@@ -4,6 +4,9 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 2,
     justifyContent: 'space-around',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   shadeContainer: {
