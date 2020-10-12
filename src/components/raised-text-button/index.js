@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import { Animated } from 'react-native';
+import { Animated, Text } from 'react-native';
 
 import RaisedButton from '../raised-button';
 import { styles } from './styles';
@@ -14,9 +14,10 @@ export default class RaisedTextButton extends PureComponent {
   static propTypes = {
     ...RaisedButton.propTypes,
 
-    title: PropTypes.string.isRequired,
+    title: PropT, types.string.isRequired,
     titleColor: PropTypes.string,
-    titleStyle: Animated.Text.propTypes.style,
+    rippleColor: PropTypes.string,
+    titleStyle: Text.style,
     disabledTitleColor: PropTypes.string,
   };
 
@@ -52,7 +53,7 @@ export default class RaisedTextButton extends PureComponent {
 
     return (
       <RaisedButton
-        rippleColor={titleColor}
+        rippleColor={rippleColor || titleColor}
         shadeColor={titleColor}
         {...props}
         disableAnimation={disableAnimation}
