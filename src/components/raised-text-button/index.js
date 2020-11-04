@@ -17,7 +17,6 @@ export default class RaisedTextButton extends PureComponent {
     title: PropTypes.string.isRequired,
     titleColor: PropTypes.string,
     rippleColor: PropTypes.string,
-    titleStyle: PropTypes.object,
     disabledTitleColor: PropTypes.string,
   };
 
