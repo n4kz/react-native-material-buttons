@@ -15,7 +15,7 @@ export default class Button extends PureComponent {
     color: 'rgb(224, 224, 224)',
     disabledColor: 'rgb(240, 240, 240)',
 
-    shadeColor: 'rgb(0, 0, 0)',
+    shadeColor: 'rgb(0, 0, 0)', 
     shadeOpacity: 0.12,
     shadeBorderRadius: 2,
 
