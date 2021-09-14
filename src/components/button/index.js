@@ -72,7 +72,7 @@ export default class Button extends PureComponent {
 
       Animated
         .timing(disableAnimation, { 
-        useNativeDriver: true, toValue: disabled? 1 : 0, duration })
+        useNativeDriver: false, toValue: disabled? 1 : 0, duration })
         .start();
     }
   }
