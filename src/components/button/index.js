@@ -15,7 +15,7 @@ export default class Button extends PureComponent {
     color: 'rgb(224, 224, 224)',
     disabledColor: 'rgb(240, 240, 240)',
 
-    shadeColor: 'rgb(0, 0, 0)',
+    shadeColor: 'rgb(0, 0, 0)', 
     shadeOpacity: 0.12,
     shadeBorderRadius: 2,
 
@@ -71,7 +71,8 @@ export default class Button extends PureComponent {
       let { disableAnimation } = this.state;
 
       Animated
-        .timing(disableAnimation, { toValue: disabled? 1 : 0, duration })
+        .timing(disableAnimation, { 
+        useNativeDriver: false, toValue: disabled? 1 : 0, duration })
         .start();
     }
   }
@@ -93,6 +94,7 @@ export default class Button extends PureComponent {
         toValue: focused? 1 : 0,
         duration: focusAnimationDuration,
         easing: Easing.out(Easing.ease),
+        useNativeDriver: false
       })
       .start();
   }
